@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Odds</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/SH9Gfe3.png') ;
+            background-size: cover;
+            background-repeat: repeat;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+            color: white; /* Cor do texto */
+        }
+
+        label, input, button {
+            margin: 5px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid white; /* Linha horizontal branca */
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom:15px;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        /* Estilo do campo de entrada de texto */
+        input[type="number"], input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Fundo branco transparente */
+            color: black; /* Cor do texto */
+            text-align: center;
+        }
+
+        /* Estilo do campo de exibição de resultado */
+        input[type="text"].result {
+            font-weight: bold;
+            display: block; /* Para que o resultado apareça em uma linha separada */
+            margin: 0 auto; /* Centraliza horizontalmente os campos de resultado */
+            width: 80%; /* Largura ajustável dos campos de resultado */
+        }
+
+        /* Estilo do cabeçalho de resultado */
+        .result-header {
+            color: white;
+            font-weight: bold;
+        }
+        h1 {
+    font-size: 36px;
+    color: white;
+}
+@media (max-width: 768px) {
+            body {
+                background-position: center; /* Isso centralizará a imagem no dispositivo móvel */
+                height: 100vh;
+            }
+            h1 {
+    font-size: 24px;
+    color: white;
+    margin-top:35px
+}
+}
+    </style>
+</head>
+<body>
+    <h1>Sniffer Sports | Calculadora Odds/Probabilidades</h1>
+    <div class="container">
+        <label for="decimalOdds">Odds Decimais:</label>
+        <input type="number" id="decimalOdds" step="0.01">
+        <button onclick="convertToProbability()">Converter para Probabilidade</button>
+        <br>
+        <span class="result-header">Resultado</span>
+        <input type="text" id="probabilityResult" class="result" readonly>
+        <hr> <!-- Linha horizontal branca separando as seções -->
+        <label for="probability">Probabilidade (%):</label>
+        <input type="number" id="probability" step="0.01">
+        <button onclick="convertToDecimalOdds()">Converter para Odds Decimais</button>
+        <br> <!-- Linha em branco para espaçamento -->
+        <span class="result-header">Resultado</span>
+        <input type="text" id="decimalOddsResult" class="result" readonly>
+    </div>
+
+    <script>
+        function convertToProbability() {
+            const decimalOddsInput = document.getElementById("decimalOdds");
+            const probabilityResult = document.getElementById("probabilityResult");
+            
+            const decimalOdds = parseFloat(decimalOddsInput.value);
+            
+            if (decimalOdds >= 1) {
+                const probability = (1 / decimalOdds) * 100;
+                probabilityResult.value = `Probabilidade: ${probability.toFixed(2)}%`;
+            } else {
+                probabilityResult.value = "As odds decimais devem ser maiores ou iguais a 1.";
+            }
+        }
+
+        function convertToDecimalOdds() {
+            const probabilityInput = document.getElementById("probability");
+            const decimalOddsResult = document.getElementById("decimalOddsResult");
+            
+            const probability = parseFloat(probabilityInput.value);
+            
+            if (probability > 0 && probability < 100) {
+                const decimalOdds = 1 / (probability / 100);
+                decimalOddsResult.value = `Odds Decimais: ${decimalOdds.toFixed(2)}`;
+            } else {
+                decimalOddsResult.value = "A probabilidade deve estar entre 0 e 100.";
+            }
+        }
+    </script>
+</body>
+</html>

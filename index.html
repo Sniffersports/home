@@ -10,9 +10,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://i.imgur.com/SH9Gfe3.png') center center fixed;
+            background: url('https://i.imgur.com/SH9Gfe3.png') ;
             background-size: cover;
             background-repeat: no-repeat;
+            height: 100vh;
         }
         .container {
             margin: 100px auto;
@@ -48,7 +49,11 @@
             cursor: pointer;
             margin-top:20px;
         }
-
+        @media (max-width: 768px) {
+            body {
+                background-position: center; /* Isso centralizará a imagem no dispositivo móvel */
+            }
+        }
         /* Estilize o botão quando o cursor estiver sobre ele */
         .botao-entrar:hover {
             background-color: darkred;

@@ -58,7 +58,7 @@
     text-decoration: none; /* Remove o sublinhado do link */
     border-radius: 5px; /* Borda arredondada */
     transition: background-color 0.3s; /* Transição suave de cor ao passar o mouse */
-    margin-top: 25px;
+    text-align:center;
 }
 
 .botao-voltar:hover {
@@ -87,6 +87,7 @@
     </style>
 </head>
 <body>
+    <a href="https://sniffersports.github.io/site/ferramentas.html" class="botao-voltar">Página Anterior</a>
     <h1>Sniffer Sports | Calculadora Odds/Probabilidades</h1>
     <div class="container">
         <input type="text" id="oddsInput" placeholder="Odds Decimais">
@@ -98,7 +99,6 @@
         <br><br>
         <div id="resultado"></div>
     </div>
-    <a href="https://sniffersports.github.io/site/ferramentas.html" class="botao-voltar">Página Anterior</a>
     <script>
         function calcularOdds() {
             const oddsInput = parseFloat(document.getElementById("oddsInput").value);

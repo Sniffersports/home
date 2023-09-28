@@ -82,7 +82,21 @@
         .tool .btn:hover {
             background-color: #ff3333;
         }
+        a.botao-voltar {
+    display: inline-block;
+    padding: 10px 0px;
+    background-color: red; /* Cor de fundo do botão */
+    color: #FFF; /* Cor do texto do botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 5px; /* Borda arredondada */
+    transition: background-color 0.3s; /* Transição suave de cor ao passar o mouse */
+    text-align:center;
+     width:100%;
+}
 
+a.botao-voltar:hover {
+    background-color: #0056b3; /* Cor de fundo alterada ao passar o mouse */
+}
         @media (max-width: 768px) {
             .tool {
                 width: calc(50% - 20px);
@@ -117,6 +131,7 @@
     </style>
 </head>
 <body>
+    <a href="https://sniffersports.github.io/site/ferramentas.html" class="botao-voltar">Página Anterior</a>
     <h1>Sniffer Sports | Ferramentas</h1>
     <div class="container">
         <div class="tool">

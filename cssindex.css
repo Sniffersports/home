@@ -49,5 +49,6 @@ b {color:red;}
     body {
 background-position: center;
 background-size: cover;
+height: 100vh;
 }
 }
